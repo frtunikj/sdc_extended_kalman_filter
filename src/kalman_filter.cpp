@@ -5,6 +5,11 @@ using namespace std;
 using Eigen::MatrixXd;
 using Eigen::VectorXd;
 
+void NormalizeAngle(double& phi)
+{
+  phi = atan2(sin(phi), cos(phi));
+}
+
 // Please note that the Eigen library does not initialize 
 // VectorXd or MatrixXd objects with zeros upon creation.
 
@@ -90,8 +95,7 @@ void KalmanFilter::UpdateEKF(const VectorXd &z) {
     y = z - z_predicted;
 
     // ensure phi is within range [-pi, pi]
-    while (y(1) > M_PI) y(1) -= 2 * M_PI;
-    while (y(1) < -M_PI) y(1) += 2 * M_PI;
+    NormalizeAngle(y(1));
 
     UpdateState(y);
 }
@@ -112,7 +116,7 @@ void KalmanFilter::UpdateState(const VectorXd &y) {
 
     // Measurement update step
     x_ = x_ + K * y; 
-    P_ = (I - K * H_) * P_; // 
+    P_ -= K * H_ * P_;
 }
 
 
