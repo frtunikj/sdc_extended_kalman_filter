@@ -1,7 +1,20 @@
-# Extended Kalman Filter Project Starter Code
-Self-Driving Car Engineer Nanodegree Program
+# *Extended Kalman Filter* 
 
-In this project I utilize a kalman filter to estimate the state of a moving object of interest with noisy lidar and radar measurements. Passing the project requires obtaining RMSE values that are lower than the tolerance outlined in the project rubric. 
+[//]: # (Image References)
+[image0]: ./Docs/EKF.png
+
+In this Self-Driving Car Engineer Nanodegree Program project I utilize a kalman filter to estimate the state of a moving object of interest with noisy lidar and radar measurements. The two different types (modalities) of sensors provide/measure the followig properties:
+
+* A lidar sensor measures the position in cartesian-coordinates (x, y).
+* A radar sensor measures the position and relative velocity (the velocity within line of sight) in polar coordinates (rho, phi, drho).
+
+The Extended Kalman Filter (EKF) predicts the position and how fast we are going in what direction at any point in time. The EKF in this repository assumes a constant velocity model for this particular system. 
+
+The result of the prediction as well as the RMSE is depected on the figure below.
+
+![alt text][image0]
+
+## Extended Kalman Filter Project Starter Code
 
 This project involves the Term 2 Simulator which can be downloaded [here](https://github.com/udacity/self-driving-car-sim/releases)
 
