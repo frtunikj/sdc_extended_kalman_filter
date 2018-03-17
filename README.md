@@ -1,4 +1,4 @@
-# *Extended Kalman Filter* 
+# Extended Kalman Filter
 
 [//]: # (Image References)
 [image0]: ./Docs/EKF.png
