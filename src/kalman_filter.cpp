@@ -10,21 +10,26 @@ using Eigen::VectorXd;
 
 KalmanFilter::KalmanFilter() {
     // Initialize state covariance matrix P
-    P_ = MatrixXd(4, 4).setZero();
+    P_ = MatrixXd(4, 4);
+    F_ = MatrixXd(4, 4);
+    Q_ = MatrixXd(4, 4);
+    
     P_ << 0.0, 0.0, 0.0, 0.0,
           0.0, 0.0, 0.0, 0.0,
           0.0, 0.0, 1000.0, 0.0,
           0.0, 0.0, 0.0, 1000.0;
 
     // Initial transition matrix F_
-    F_ = MatrixXd(4, 4);
     F_ << 1, 0, 1, 0,
             0, 1, 0, 1,
             0, 0, 1, 0,
             0, 0, 0, 1;
 
     // Initialize process noise covariance matrix
-    Q_ = MatrixXd(4, 4).setZero();
+    Q_ << 0.0, 0.0, 0.0, 0.0,
+          0.0, 0.0, 0.0, 0.0,
+          0.0, 0.0, 0.0, 0.0,
+          0.0, 0.0, 0.0, 0.0;
 }
 
 KalmanFilter::~KalmanFilter() {
@@ -70,7 +75,11 @@ void KalmanFilter::UpdateEKF(const VectorXd &z) {
 
     cout << "EKF update: " << endl;
 
-    float px = x_(0), py = x_(1), vx = x_(2), vy = x_(3);
+    float px = x_(0);
+    float py = x_(1);
+    float vx = x_(2);
+    float vy = x_(3);
+    
     // rho
     z_predicted(0) = sqrt(px * px + py * py); 
     // phi
