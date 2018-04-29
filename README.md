@@ -3,7 +3,7 @@
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
 
 [//]: # (Image References)
-[image0]: ./Docs/EKF.png
+[image0]: ./docs/EKF.png
 
 In this Self-Driving Car Engineer Nanodegree Program project I utilize a kalman filter to estimate the state of a moving object of interest with noisy lidar and radar measurements. The two different types (modalities) of sensors provide/measure the followig properties:
 
