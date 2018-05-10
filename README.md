@@ -16,7 +16,7 @@ The result of the prediction as well as the RMSE is depected on the figure below
 
 ![alt text][image0]
 
-The Udacity code basis for the project can be find [here](https://github.com/udacity/CarND-Extended-Kalman-Filter-Project.git).
+The Udacity code basis for the project can be find [here](https://github.com/udacity/CarND-Extended-Kalman-Filter-Project).
 
 ## Extended Kalman Filter Project Starter Code
 
